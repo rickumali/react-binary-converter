@@ -7,12 +7,17 @@ function App() {
     return <Bit seton={checked}/>;
   }
 
+  function handleChange(event) {
+    console.log(event.target.value);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         Bit Converter
       </header>
-      <input className="Decimal-input" type='text'/>
+      <input className="Decimal-input" type='text'
+        onChange={handleChange} />
       <p/>
       {renderBit(false)}
       {renderBit(false)}
