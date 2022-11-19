@@ -7,6 +7,7 @@ function App() {
       <header className="App-header">
         Bit Converter
       </header>
+      <input className="Decimal-input" type='text'/>
     </div>
   );
 }
