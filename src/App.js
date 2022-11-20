@@ -3,12 +3,17 @@ import './App.css';
 import Bit from './Bit';
 
 function App() {
+  function dec2bin(dec) {
+    return (dec >>> 0).toString(2);
+  }
+
   function renderBit(checked) {
     return <Bit seton={checked}/>;
   }
 
   function handleChange(event) {
     console.log(event.target.value);
+    console.log(dec2bin(parseInt(event.target.value)));
   }
 
   return (
