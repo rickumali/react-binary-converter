@@ -13,7 +13,7 @@ function App() {
 
   function handleChange(event) {
     console.log(event.target.value);
-    console.log(dec2bin(parseInt(event.target.value)));
+    console.log(dec2bin(parseInt(event.target.value)).padStart(8, '0'));
   }
 
   return (
