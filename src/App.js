@@ -24,6 +24,8 @@ function App() {
       <input className="Decimal-input" type='text'
         onChange={handleChange} />
       <p/>
+      Binary:
+      <p/>
       {renderBit(false)}
       {renderBit(false)}
       {renderBit(false)}
