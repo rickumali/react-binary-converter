@@ -5,7 +5,8 @@ import Bit from './Bit';
 
 function App() {
   const [someObject, setSomeObject] = React.useState({
-    displayString: "00000000"
+    displayString: "00000000",
+    error: ""
   });
 
   function dec2bin(dec) {
@@ -27,6 +28,11 @@ function App() {
     if ((number < 0) || (number > 255)) {
       number = 0;
       event.target.value = 0;
+      setSomeObject({
+        displayString: "00000000",
+        error: "Number must be between 0 and 255"
+      });
+      return;
     }
     console.log(dec2bin(number).padStart(8, '0'));
     let binString = dec2bin(number).padStart(8, '0');
@@ -53,6 +59,8 @@ function App() {
       {renderBit(someObject.displayString[5])}
       {renderBit(someObject.displayString[6])}
       {renderBit(someObject.displayString[7])}
+      <p/>
+      {someObject.error}
     </div>
   );
 }
