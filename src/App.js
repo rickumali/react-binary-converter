@@ -12,7 +12,13 @@ function App() {
     return (dec >>> 0).toString(2);
   }
 
-  function renderBit(checked) {
+  function renderBit(one_or_zero) {
+    let checked = false;
+    if (one_or_zero == "1") {
+      checked = true;
+    } else if (one_or_zero == "0") {
+      checked = false;
+    }
     return <Bit seton={checked}/>;
   }
 
@@ -35,14 +41,14 @@ function App() {
       <p/>
       Binary: {someObject.displayString}
       <p/>
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(false)}
-      {renderBit(true)}
+      {renderBit(someObject.displayString[0])}
+      {renderBit(someObject.displayString[1])}
+      {renderBit(someObject.displayString[2])}
+      {renderBit(someObject.displayString[3])}
+      {renderBit(someObject.displayString[4])}
+      {renderBit(someObject.displayString[5])}
+      {renderBit(someObject.displayString[6])}
+      {renderBit(someObject.displayString[7])}
     </div>
   );
 }
