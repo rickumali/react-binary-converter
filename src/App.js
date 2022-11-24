@@ -4,7 +4,7 @@ import './App.css';
 import Bit from './Bit';
 
 function App() {
-  const [binaryNumberStr, setBinaryNumberStr] = React.useState("0");
+  const [someObject, setSomeObject] = React.useState("0");
 
   function dec2bin(dec) {
     return (dec >>> 0).toString(2);
@@ -17,7 +17,8 @@ function App() {
   function handleChange(event) {
     console.log(event.target.value);
     console.log(dec2bin(parseInt(event.target.value)).padStart(8, '0'));
-    setBinaryNumberStr(dec2bin(parseInt(event.target.value)).padStart(8, '0'));
+    let binString = dec2bin(parseInt(event.target.value)).padStart(8, '0');
+    setSomeObject({displayString: binString});
   }
 
   return (
@@ -28,7 +29,7 @@ function App() {
       <input className="Decimal-input" type='text'
         onChange={handleChange} />
       <p/>
-      Binary: {binaryNumberStr}
+      Binary: {someObject.displayString}
       <p/>
       {renderBit(false)}
       {renderBit(false)}
