@@ -4,7 +4,9 @@ import './App.css';
 import Bit from './Bit';
 
 function App() {
-  const [someObject, setSomeObject] = React.useState("0");
+  const [someObject, setSomeObject] = React.useState({
+    displayString: "00000000"
+  });
 
   function dec2bin(dec) {
     return (dec >>> 0).toString(2);
@@ -18,7 +20,9 @@ function App() {
     console.log(event.target.value);
     console.log(dec2bin(parseInt(event.target.value)).padStart(8, '0'));
     let binString = dec2bin(parseInt(event.target.value)).padStart(8, '0');
-    setSomeObject({displayString: binString});
+    setSomeObject({
+      displayString: binString
+    });
   }
 
   return (
