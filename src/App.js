@@ -23,9 +23,13 @@ function App() {
   }
 
   function handleChange(event) {
-    console.log(event.target.value);
-    console.log(dec2bin(parseInt(event.target.value)).padStart(8, '0'));
-    let binString = dec2bin(parseInt(event.target.value)).padStart(8, '0');
+    let number = parseInt(event.target.value);
+    if ((number < 0) || (number > 255)) {
+      number = 0;
+      event.target.value = 0;
+    }
+    console.log(dec2bin(number).padStart(8, '0'));
+    let binString = dec2bin(number).padStart(8, '0');
     setSomeObject({
       displayString: binString
     });
