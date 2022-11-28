@@ -16,17 +16,17 @@ function App() {
 
   function handleBitChange(b) {
     let newNumber = someObject.number;
-    let newDisplayString = someObject.displayString.repeat(1);
     let one_or_zero = someObject.displayString[b]
-    console.log("Help me Obi " + b + " " + one_or_zero);
+    let actual_bit = 7 - b;
     if (one_or_zero == "1") {
-      // TODO: newDisplayString[b] = 0;
+      newNumber = newNumber - (2 ** actual_bit);
     } else if (one_or_zero == "0") {
-      // TODO: newDisplayString[b] = 1;
+      newNumber = newNumber + (2 ** actual_bit);
     }
+    let binString = dec2bin(newNumber).padStart(8, '0');
     setSomeObject({
-      number: 11, // TODO: FIX. Hardcoded
-      displayString: "00001011", // TODO: FIX. Hardcoded
+      number: newNumber,
+      displayString: binString,
       error: ""
     });
   }
