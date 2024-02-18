@@ -5,7 +5,7 @@ to learn about React.
 
 To see this code working visit:
 
-http://rgu.freeshell.org/binary-converter/
+https://rgu.freeshell.org/binary-converter/
 
 ## Create React App
 
