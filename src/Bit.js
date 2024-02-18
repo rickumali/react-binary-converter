@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 class Bit extends React.Component {
   render() {
     return (
       <input
         className="Bit"
-        type='checkbox'
+        type="checkbox"
         readOnly={false}
         checked={this.props.seton}
         onChange={() => this.props.onChange()}

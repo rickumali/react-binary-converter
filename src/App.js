@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Bit from './Bit';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Bit from "./Bit";
 
 function App() {
   const [someObject, setSomeObject] = React.useState({
     number: 0,
     displayString: "00000000",
-    error: ""
+    error: "",
   });
 
   function dec2bin(dec) {
@@ -16,68 +16,65 @@ function App() {
 
   function handleBitChange(b) {
     let newNumber = someObject.number;
-    let one_or_zero = someObject.displayString[b]
+    let one_or_zero = someObject.displayString[b];
     let actual_bit = 7 - b;
     if (one_or_zero == "1") {
-      newNumber = newNumber - (2 ** actual_bit);
+      newNumber = newNumber - 2 ** actual_bit;
     } else if (one_or_zero == "0") {
-      newNumber = newNumber + (2 ** actual_bit);
+      newNumber = newNumber + 2 ** actual_bit;
     }
-    let binString = dec2bin(newNumber).padStart(8, '0');
+    let binString = dec2bin(newNumber).padStart(8, "0");
     setSomeObject({
       number: newNumber,
       displayString: binString,
-      error: ""
+      error: "",
     });
   }
 
   function renderBit(bit) {
     let checked = false;
-    let one_or_zero = someObject.displayString[bit]
+    let one_or_zero = someObject.displayString[bit];
     if (one_or_zero == "1") {
       checked = true;
     } else if (one_or_zero == "0") {
       checked = false;
     }
-    return (
-      <Bit
-        seton={checked}
-        onChange={() => handleBitChange(bit)}
-      />
-    );
+    return <Bit seton={checked} onChange={() => handleBitChange(bit)} />;
   }
 
   function handleChange(event) {
     let number = parseInt(event.target.value);
-    if ((number < 0) || (number > 255)) {
+    if (number < 0 || number > 255) {
       number = 0;
       event.target.value = 0;
       setSomeObject({
         number: number,
         displayString: "00000000",
-        error: "Number must be between 0 and 255"
+        error: "Number must be between 0 and 255",
       });
       return;
     }
-    console.log(dec2bin(number).padStart(8, '0'));
-    let binString = dec2bin(number).padStart(8, '0');
+    console.log(dec2bin(number).padStart(8, "0"));
+    let binString = dec2bin(number).padStart(8, "0");
     setSomeObject({
       number: number,
       displayString: binString,
-      error: ""
+      error: "",
     });
   }
 
   return (
     <div className="App">
-      <header className="App-header">
-        Bit Converter
-      </header>
-      <input className="Decimal-input" type='text' value={someObject.number}
-        onChange={handleChange} />
-      <p/>
+      <header className="App-header">Bit Converter</header>
+      <input
+        className="Decimal-input"
+        type="text"
+        value={someObject.number}
+        onChange={handleChange}
+      />
+      <p />
       Binary: {someObject.displayString}
-      <p/>
+      <p />
       {renderBit(0)}
       {renderBit(1)}
       {renderBit(2)}
@@ -86,7 +83,7 @@ function App() {
       {renderBit(5)}
       {renderBit(6)}
       {renderBit(7)}
-      <p/>
+      <p />
       {someObject.error}
     </div>
   );
