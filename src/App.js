@@ -65,7 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">Bit Converter</header>
+      <header className="App-header">Binary Converter</header>
       <input
         className="Decimal-input"
         type="text"
