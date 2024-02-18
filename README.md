@@ -18,6 +18,10 @@ https://reactjs.org/docs/forms.html
 
 - Helped with understanding React forms
 
+https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
+
+- Code for converting an integer to a binary string
+
 https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
 
 - Described how to pad strings with leading zeroes (padStart())
