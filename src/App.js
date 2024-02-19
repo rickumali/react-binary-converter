@@ -41,8 +41,11 @@ function App() {
     return <Bit seton={checked} onChange={() => handleBitChange(bit)} />;
   }
 
-  function handleChange(event) {
+  function handleTextInputChange(event) {
     let number = parseInt(event.target.value);
+    if (isNaN(number)) {
+      number = 0;
+    }
     if (number < 0 || number > 255) {
       number = 0;
       event.target.value = 0;
@@ -69,7 +72,7 @@ function App() {
         className="Decimal-input"
         type="text"
         value={someObject.number}
-        onChange={handleChange}
+        onChange={handleTextInputChange}
       />
       <p />
       Binary: {someObject.displayString}
