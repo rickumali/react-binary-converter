@@ -94,6 +94,13 @@ function App() {
       Binary: {someObject.displayString}
       <p />
       {someObject.error}
+      <p />
+      <div id="footer">
+        Code:{" "}
+        <a href="https://github.com/rickumali/react-binary-converter">
+          https://github.com/rickumali/react-binary-converter
+        </a>
+      </div>
     </div>
   );
 }
