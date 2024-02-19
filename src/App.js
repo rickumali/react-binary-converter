@@ -45,6 +45,12 @@ function App() {
     let number = parseInt(event.target.value);
     if (isNaN(number)) {
       number = 0;
+      setSomeObject({
+        number: number,
+        displayString: "00000000",
+        error: "Type a number or toggle a bit",
+      });
+      return;
     }
     if (number < 0 || number > 255) {
       number = 0;
@@ -75,8 +81,7 @@ function App() {
         onChange={handleTextInputChange}
       />
       <p />
-      Binary: {someObject.displayString}
-      <p />
+      Bits:
       {renderBit(0)}
       {renderBit(1)}
       {renderBit(2)}
@@ -85,6 +90,8 @@ function App() {
       {renderBit(5)}
       {renderBit(6)}
       {renderBit(7)}
+      <p />
+      Binary: {someObject.displayString}
       <p />
       {someObject.error}
     </div>

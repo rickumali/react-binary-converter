@@ -25,6 +25,7 @@
 }
 
 .Decimal-input {
+  margin-top: 20px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
