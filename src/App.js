@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Bit from "./Bit";
 
@@ -18,9 +17,9 @@ function App() {
     let newNumber = someObject.number;
     let one_or_zero = someObject.displayString[b];
     let actual_bit = 7 - b;
-    if (one_or_zero == "1") {
+    if (one_or_zero === "1") {
       newNumber = newNumber - 2 ** actual_bit;
-    } else if (one_or_zero == "0") {
+    } else if (one_or_zero === "0") {
       newNumber = newNumber + 2 ** actual_bit;
     }
     let binString = dec2bin(newNumber).padStart(8, "0");
@@ -34,9 +33,9 @@ function App() {
   function renderBit(bit) {
     let checked = false;
     let one_or_zero = someObject.displayString[bit];
-    if (one_or_zero == "1") {
+    if (one_or_zero === "1") {
       checked = true;
-    } else if (one_or_zero == "0") {
+    } else if (one_or_zero === "0") {
       checked = false;
     }
     return <Bit seton={checked} onChange={() => handleBitChange(bit)} />;
